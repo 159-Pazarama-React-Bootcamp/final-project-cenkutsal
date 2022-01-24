@@ -6,21 +6,23 @@ import NikeLogo from '../../core/ui/assets/Nike.svg';
 import './report-form.css';
 import NumberInput from '../../components/number-input/NumberInput';
 import * as yup from 'yup';
+import Textarea from '../../components/textarea/Textarea';
 
 const validationSchema = yup.object({
     firstName: yup
         .string()
-        .required('Please enter your first name')
+        .required('Please enter your first name*')
         .max(40)
         .matches(/^[A-Za-z ]*$/, 'Please enter valid name'),
 
     lastName: yup
         .string()
-        .required('Please enter your last name')
+        .required('Please enter your last name*')
         .max(40)
         .matches(/^[A-Za-z ]*$/, 'Please enter valid name'),
-    ssn: yup.number().max(11).positive(),
-    age: yup.number().max(3).positive(),
+    socialIDNumber: yup.string().max(11).required('Please enter your social ID number*'),
+    age: yup.number().positive('Your age must be a positive number*'),
+    reasonForInquiry: yup.string().required('Please enter the reason for inquiry'),
 });
 
 function ReportForm() {
@@ -36,25 +38,60 @@ function ReportForm() {
             </header>
 
             <Formik
-                initialValues={{ firstName: '', lastName: '', socialIDNumber: '', age: '' }}
+                initialValues={{ firstName: '', lastName: '', socialIDNumber: '', age: '', reasonForInquiry: '' }}
                 onSubmit={(data) => {
                     console.log(data);
-                    console.log('test');
                 }}
                 validationSchema={validationSchema}
             >
                 {({ values, errors }) => (
                     <Form className="report-form__middle">
+                        {errors.firstName ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.firstName}
+                            </p>
+                        ) : (
+                            ''
+                        )}
                         <Field placeholder="Name" name="firstName" as={Input} />
+                        {errors.lastName ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.lastName}
+                            </p>
+                        ) : (
+                            ''
+                        )}
                         <Field placeholder="Last Name" name="lastName" as={Input} />
-                        <Field placeholder="ID Number" name="socialIDNumber" as={Input} />
+                        {errors.socialIDNumber ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.socialIDNumber}
+                            </p>
+                        ) : (
+                            ''
+                        )}
+                        <Field placeholder="Social ID Number" name="socialIDNumber" as={NumberInput} />
+                        {errors.age ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.age}
+                            </p>
+                        ) : (
+                            ''
+                        )}
                         <Field placeholder="Age" name="age" as={NumberInput} />
+                        {errors.reasonForInquiry ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.reasonForInquiry}
+                            </p>
+                        ) : (
+                            ''
+                        )}
+                        <Field placeholder="Reason for inquiry" name="reasonForInquiry" as={Textarea} />
 
                         <div className="report-form__footer">
                             <Button type="submit">send ticket</Button>
                             <span>
-                                <p>Already sent a report?</p>
-                                <a href="#">Inquiry Ticket</a>
+                                <p>Already sent a ticket?</p>
+                                <a href="#">Inquiry </a>
                             </span>
                         </div>
                     </Form>

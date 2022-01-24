@@ -47,8 +47,14 @@
 .report-form__middle {
     padding-top: 10px;
 }
-.report-form__middle Input {
+.report-form__middle Input,
+Textarea {
     margin-bottom: 13px;
+}
+
+.report-form__middle--error {
+    text-align: justify;
+    padding-left: 10px;
 }
 .report-form__footer {
     padding-top: 10px;

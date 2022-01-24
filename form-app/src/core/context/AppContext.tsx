@@ -1,7 +1,6 @@
 import { createContext, Dispatch } from 'react';
 import { Ticket, User } from '../../api/ticketApiModels';
 
-
 interface AppState {
     user: User | null;
     tickets: Ticket[];

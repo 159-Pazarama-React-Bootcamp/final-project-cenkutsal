@@ -19,7 +19,6 @@ function AppContextProvider({ children }: AppContextProviderProps) {
         })();
     }, []);
 
-
     return (
         <AppContext.Provider
             value={{

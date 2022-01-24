@@ -6,7 +6,7 @@ export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onCh
     name: string;
 };
 function Input(props: InputProps) {
-    return <input className="input" {...props} />;
+    return <input {...props} />;
 }
 
 export default Input;
