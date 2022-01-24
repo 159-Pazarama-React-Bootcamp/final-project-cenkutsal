@@ -2,7 +2,6 @@ import React from 'react';
 import Button from '../../components/button/Button';
 import { Form, Field, Formik } from 'formik';
 import Input from '../../components/input/Input';
-import NikeLogo from '../../core/ui/assets/Nike.svg';
 import './report-form.css';
 import NumberInput from '../../components/number-input/NumberInput';
 import * as yup from 'yup';
@@ -30,9 +29,6 @@ function ReportForm() {
     return (
         <div className="report-form">
             <header className="report-form__header">
-                <img src={NikeLogo} alt="logo" />
-                <br />
-                <br />
                 <h2 className="report-form--top--h2">SEND US A TICKET</h2>
                 <p>Let us hear your problem. Our team will be in touch with you in a very short period of time.</p>
             </header>
@@ -96,14 +92,6 @@ function ReportForm() {
                             ''
                         )}
                         <Field placeholder="Age" name="age" as={NumberInput} />
-                        {errors.reasonForInquiry ? (
-                            <p style={{ color: 'red' }} className="report-form__middle--error">
-                                {errors.reasonForInquiry}
-                            </p>
-                        ) : (
-                            ''
-                        )}
-                        <Field placeholder="Reason For Inquiry" name="reasonForInquiry" as={Textarea} />
                         {errors.address ? (
                             <p style={{ color: 'red' }} className="report-form__middle--error">
                                 {errors.address}
@@ -112,6 +100,14 @@ function ReportForm() {
                             ''
                         )}
                         <Field placeholder="Your Address" name="address" as={Textarea} />
+                        {errors.reasonForInquiry ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.reasonForInquiry}
+                            </p>
+                        ) : (
+                            ''
+                        )}
+                        <Field placeholder="Reason For Inquiry" name="reasonForInquiry" as={Textarea} />
 
                         <div className="report-form__footer">
                             <Button type="submit">send ticket</Button>
