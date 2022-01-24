@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Trade Gothic for Nike';
+    src: url('../../core/ui/fonts/TradeGothicforNike365BdCn.ttf') format('truetype');
+    font-weight: bold;
+}
+
+button {
+    padding: 11px 24px;
+    background: #000000;
+    border-radius: 3px;
+    font-family: 'Trade Gothic for Nike';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0px 10px;
+    cursor: pointer;
+    width: 325px;
+}
+button:disabled {
+    cursor: not-allowed;
+}

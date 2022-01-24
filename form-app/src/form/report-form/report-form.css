@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../../core/ui/fonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Trade Gothic for Nike';
+    src: url('../../core/ui/fonts/TradeGothicforNike365BdCn.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #ffffff;
+    border: 3px solid #000000;
+    box-sizing: border-box;
+    width: 485px;
+    padding: 80px;
+}
+.report-form__header {
+    padding-bottom: 10px;
+}
+.report-form--top--h2 {
+    font-family: 'Trade Gothic for Nike';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+}
+
+.report-form__header p,
+.report-form__footer p {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 160%;
+    text-align: center;
+    letter-spacing: 0.0025rem;
+    color: rgba(0, 0, 0, 0.4);
+}
+.report-form__middle {
+    padding-top: 10px;
+}
+.report-form__middle Input {
+    margin-bottom: 13px;
+}
+.report-form__footer {
+    padding-top: 10px;
+}
+
+.report-form__footer span {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 19px;
+}
+.report-form__footer a {
+    margin-left: 4px;
+    font-size: 12px;
+    line-height: 130%;
+    color: #000000;
+}
