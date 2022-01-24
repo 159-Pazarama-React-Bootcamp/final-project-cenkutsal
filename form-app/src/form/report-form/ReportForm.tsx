@@ -38,8 +38,12 @@ function ReportForm() {
 
             <Formik
                 initialValues={{ firstName: '', lastName: '', socialIDNumber: '', age: '', reasonForInquiry: '' }}
-                onSubmit={(data) => {
-                    console.log(data);
+                onSubmit={(data, { resetForm }) => {
+                    //api stuff will happen here
+
+                    resetForm({
+                        values: { age: '', firstName: '', lastName: '', socialIDNumber: '', reasonForInquiry: '' },
+                    });
                 }}
                 validationSchema={validationSchema}
             >
