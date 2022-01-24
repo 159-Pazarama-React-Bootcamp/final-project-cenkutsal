@@ -30,11 +30,10 @@ function ReportForm() {
         <div className="report-form">
             <header className="report-form__header">
                 <img src={NikeLogo} alt="logo" />
-                <h2 className="report-form--top--h2">BECOME A NIKE MEMBER</h2>
-                <p>
-                    Create your Nike Member profile and get first access to the very best of Nike products, inspiration
-                    and community.
-                </p>
+                <br />
+                <br />
+                <h2 className="report-form--top--h2">SEND US A TICKET</h2>
+                <p>Let us hear your problem. Our staff will be in touch with you in a very short period of time.</p>
             </header>
 
             <Formik
