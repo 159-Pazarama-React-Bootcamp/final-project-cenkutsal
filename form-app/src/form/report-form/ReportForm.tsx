@@ -23,6 +23,7 @@ const validationSchema = yup.object({
     socialIDNumber: yup.string().max(11).required('Please enter your social ID number*'),
     age: yup.number().positive('Your age must be a positive number*'),
     reasonForInquiry: yup.string().required('Please enter the reason for inquiry'),
+    address: yup.string().required('Please enter your address'),
 });
 
 function ReportForm() {
@@ -33,16 +34,30 @@ function ReportForm() {
                 <br />
                 <br />
                 <h2 className="report-form--top--h2">SEND US A TICKET</h2>
-                <p>Let us hear your problem. Our staff will be in touch with you in a very short period of time.</p>
+                <p>Let us hear your problem. Our team will be in touch with you in a very short period of time.</p>
             </header>
 
             <Formik
-                initialValues={{ firstName: '', lastName: '', socialIDNumber: '', age: '', reasonForInquiry: '' }}
+                initialValues={{
+                    firstName: '',
+                    lastName: '',
+                    socialIDNumber: '',
+                    age: '',
+                    reasonForInquiry: '',
+                    address: '',
+                }}
                 onSubmit={(data, { resetForm }) => {
                     //api stuff will happen here
 
                     resetForm({
-                        values: { age: '', firstName: '', lastName: '', socialIDNumber: '', reasonForInquiry: '' },
+                        values: {
+                            age: '',
+                            firstName: '',
+                            lastName: '',
+                            socialIDNumber: '',
+                            reasonForInquiry: '',
+                            address: '',
+                        },
                     });
                 }}
                 validationSchema={validationSchema}
@@ -88,7 +103,15 @@ function ReportForm() {
                         ) : (
                             ''
                         )}
-                        <Field placeholder="Reason for inquiry" name="reasonForInquiry" as={Textarea} />
+                        <Field placeholder="Reason For Inquiry" name="reasonForInquiry" as={Textarea} />
+                        {errors.address ? (
+                            <p style={{ color: 'red' }} className="report-form__middle--error">
+                                {errors.address}
+                            </p>
+                        ) : (
+                            ''
+                        )}
+                        <Field placeholder="Your Address" name="address" as={Textarea} />
 
                         <div className="report-form__footer">
                             <Button type="submit">send ticket</Button>
