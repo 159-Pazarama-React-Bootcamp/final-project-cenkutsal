@@ -1,6 +1,6 @@
-import { Ticket } from './ticketApiModels';
+import { AddTicketPayload, Ticket } from './ticketApiModels';
 
-const baseUrl = 'localhost:4000/api/tickets';
+const baseUrl = 'http://localhost:4000/api/tickets';
 
 const ticketApi = {
     getTickets(): Promise<Ticket[]> {
@@ -8,7 +8,7 @@ const ticketApi = {
             .then((response) => response.json())
             .catch((error) => console.log(error));
     },
-    addTicket(payload: Ticket): Promise<Ticket> {
+    addTicket(payload: AddTicketPayload): Promise<Ticket> {
         return fetch(baseUrl, {
             method: 'POST',
             body: JSON.stringify(payload),

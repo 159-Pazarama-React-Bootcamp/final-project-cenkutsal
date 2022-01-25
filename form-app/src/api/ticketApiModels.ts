@@ -8,5 +8,13 @@ interface Ticket {
     address: string;
     response?: string;
 }
+interface AddTicketPayload {
+    firstName: string;
+    lastName: string;
+    socialIDNumber: string;
+    reasonForInquiry: string;
+    address: string;
+    response?: string;
+}
 
-export type { Ticket };
+export type { Ticket, AddTicketPayload };

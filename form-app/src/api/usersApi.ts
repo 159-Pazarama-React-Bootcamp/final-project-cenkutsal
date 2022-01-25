@@ -8,7 +8,7 @@ const usersApi = {
             .then((response) => response.json())
             .catch((error) => console.log(error));
     },
-    setUser(payload: User): Promise<User> {
+    login(payload: User): Promise<User> {
         return fetch(`${baseUrl}/login}`, {
             method: 'POST',
             body: JSON.stringify(payload),

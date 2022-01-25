@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent, useContext } from 'react';
 import Button from '../../components/button/Button';
 import { Form, Field, Formik } from 'formik';
 import Input from '../../components/input/Input';
@@ -6,6 +6,10 @@ import './report-form.css';
 import NumberInput from '../../components/number-input/NumberInput';
 import * as yup from 'yup';
 import Textarea from '../../components/textarea/Textarea';
+import { Ticket } from '../../api/ticketApiModels';
+import ticketApi from '../../api/ticketApi';
+import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
+import AppContext from '../../core/context/AppContext';
 
 const validationSchema = yup.object({
     firstName: yup
@@ -26,6 +30,8 @@ const validationSchema = yup.object({
 });
 
 function ReportForm() {
+    const { state: addTicket, runAsyncProcess: runAddTicketAsyncProcess } = useAsyncProcess<Ticket>();
+    const { dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
     return (
         <div className="report-form">
             <header className="report-form__header">
@@ -42,9 +48,20 @@ function ReportForm() {
                     reasonForInquiry: '',
                     address: '',
                 }}
-                onSubmit={(data, { resetForm }) => {
-                    //api stuff will happen here
-
+                onSubmit={async (data, { resetForm }) => {
+                    try {
+                        const response = await runAddTicketAsyncProcess(
+                            ticketApi.addTicket({
+                                firstName: data.firstName,
+                                lastName: data.firstName,
+                                address: data.address,
+                                reasonForInquiry: data.reasonForInquiry,
+                                socialIDNumber: data.socialIDNumber,
+                            }),
+                        );
+                        dispatchAppStateAction({ type: 'ADD_TICKET', payload: response });
+                        //TO-DO -> route to ticket sent successfully page.
+                    } catch (error) {}
                     resetForm({
                         values: {
                             age: '',
@@ -121,9 +138,6 @@ function ReportForm() {
             </Formik>
         </div>
     );
-    function handleInputChange() {
-        console.log('input changed');
-    }
 }
 
 export default ReportForm;
