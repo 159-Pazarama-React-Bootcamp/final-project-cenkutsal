@@ -1,8 +1,8 @@
 import { Ticket } from './ticketApiModels';
 
-const baseUrl = 'https://61c37a449cfb8f0017a3ebae.mockapi.io/todos';
+const baseUrl = 'localhost:4000/api/tickets';
 
-const todoApi = {
+const ticketApi = {
     getTickets(): Promise<Ticket[]> {
         return fetch(baseUrl, { method: 'GET' })
             .then((response) => response.json())
@@ -39,4 +39,4 @@ const todoApi = {
     },
 };
 
-export default todoApi;
+export default ticketApi;

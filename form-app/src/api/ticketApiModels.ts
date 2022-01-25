@@ -6,12 +6,7 @@ interface Ticket {
     status: 'rejected' | 'pending' | 'completed';
     reasonForInquiry: string;
     address: string;
-    attachment?: string;
+    response?: string;
 }
 
-interface User {
-    username: string;
-    password: string;
-}
-
-export type { Ticket, User };
+export type { Ticket };

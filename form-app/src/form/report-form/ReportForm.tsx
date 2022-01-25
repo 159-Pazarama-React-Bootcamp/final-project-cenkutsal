@@ -113,7 +113,7 @@ function ReportForm() {
                             <Button type="submit">send ticket</Button>
                             <span>
                                 <p>Already sent a ticket?</p>
-                                <a href="#">Inquiry </a>
+                                <a href="#">Inquiry</a>
                             </span>
                         </div>
                     </Form>
