@@ -11,13 +11,13 @@ function AppContextProvider({ children }: AppContextProviderProps) {
     const [appState, dispatchAppStateAction] = useReducer(appStateReducer, initialAppState);
     const { state, runAsyncProcess } = useAsyncProcess<Ticket[]>();
 
-    useEffect(() => {
-        (async () => {
-            const response = await runAsyncProcess(ticketApi.getTickets());
-            dispatchAppStateAction({ type: 'SET_TICKETS', payload: response });
-            console.log(response);
-        })();
-    }, []);
+    // useEffect(() => {
+    //     (async () => {
+    //         const response = await runAsyncProcess(ticketApi.getTickets());
+    //         dispatchAppStateAction({ type: 'SET_TICKETS', payload: response });
+    //         console.log(response);
+    //     })();
+    // }, []);
 
     return (
         <AppContext.Provider
