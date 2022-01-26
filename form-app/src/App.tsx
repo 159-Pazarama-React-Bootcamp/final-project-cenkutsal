@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from './landing/Landing';
 import './app.css';
 import Login from './form/login-form/Login';
+import Inquiry from './form/inquiry-form/Inquiry';
+import ProtectedRoute from './core/route/ProtectedRoute';
+import Admin from './admin-page/Admin';
+import ROUTES from './core/route/routes';
 
 function App() {
     return (
@@ -12,7 +16,11 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Landing />} />
                     <Route path="/send-ticket" element={<ReportForm />} />
+                    <Route path="/inquiry" element={<Inquiry />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path={ROUTES.ADMIN} element={<ProtectedRoute />}>
+                        <Route path={ROUTES.ADMIN} element={<Admin />} />
+                    </Route>
                     <Route
                         path="*"
                         element={

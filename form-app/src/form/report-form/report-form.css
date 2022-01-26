@@ -9,13 +9,14 @@
     font-weight: bold;
     font-style: normal;
 }
-.wrapper {
+.report-form__wrapper {
     display: flex;
     justify-content: center;
     height: 100vh;
     align-items: center;
 }
-.report-form {
+
+.report-form__container {
     display: flex;
     flex-direction: column;
     align-items: center;

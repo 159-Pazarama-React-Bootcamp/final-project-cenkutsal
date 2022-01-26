@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext } from 'react';
+import React, { useContext } from 'react';
 import Button from '../../components/button/Button';
 import { Form, Field, Formik } from 'formik';
 import Input from '../../components/input/Input';
@@ -10,6 +10,7 @@ import { Ticket } from '../../api/ticketApiModels';
 import ticketApi from '../../api/ticketApi';
 import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
 import AppContext from '../../core/context/AppContext';
+import Wrapper from '../../components/wrapper/Wrapper';
 
 const validationSchema = yup.object({
     firstName: yup
@@ -23,7 +24,11 @@ const validationSchema = yup.object({
         .required('Please enter your last name*')
         .max(40)
         .matches(/^[A-Za-z ]*$/, 'Please enter valid name'),
-    socialIDNumber: yup.string().max(11).required('Please enter your social ID number*'),
+    socialIDNumber: yup
+        .string()
+        .max(11)
+        .required('Please enter your social ID number*')
+        .matches(/^[1-9]{1}[0-9]{9}[02468]{1}$/, 'Invalid Social ID Number'),
     age: yup.number().positive('Your age must be a positive number*'),
     reasonForInquiry: yup.string().required('Please enter the reason for inquiry'),
     address: yup.string().required('Please enter your address'),
@@ -33,7 +38,7 @@ function ReportForm() {
     const { runAsyncProcess: runAddTicketAsyncProcess } = useAsyncProcess<Ticket>();
     const { dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
     return (
-        <div className="wrapper">
+        <Wrapper className="report-form__wrapper">
             <div className="report-form">
                 <header className="report-form__header">
                     <h2 className="report-form--top--h2">SEND US A TICKET</h2>
@@ -136,7 +141,7 @@ function ReportForm() {
                     )}
                 </Formik>
             </div>
-        </div>
+        </Wrapper>
     );
 }
 

@@ -1,6 +1,6 @@
 import { AddTicketPayload, Ticket } from './ticketApiModels';
 
-const baseUrl = 'http://localhost:4000/api/tickets';
+const baseUrl = 'http://localhost:4001/api/tickets';
 
 const ticketApi = {
     getTickets(): Promise<Ticket[]> {
@@ -23,6 +23,11 @@ const ticketApi = {
     deleteTicket(id: string) {
         return fetch(`${baseUrl}/${id}`, {
             method: 'DELETE',
+        });
+    },
+    getTicketById(id: string) {
+        return fetch(`${baseUrl}/${id}`, {
+            method: 'GET',
         });
     },
     updateTicket(payload: Ticket, id: string): Promise<Ticket> {

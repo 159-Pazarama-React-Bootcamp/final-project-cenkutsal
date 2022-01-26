@@ -7,7 +7,61 @@
     border-radius: 5px;
 }
 header {
+    padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+.header__middle a,
+.header__right a {
+    color: #000;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+}
+.header__left {
+    padding: 10px;
+}
+.header__middle {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.header__middle a {
+    text-decoration: none;
+}
+.header__right a {
+    padding-right: 10px;
+    text-decoration: none;
+}
+section {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 61px);
+}
+.section__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    background: #a53a7e;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 82px;
+    color: #98e656;
+}
+.section__left h1 {
+    max-width: 500px;
+}
+.section__right {
+    width: 45%;
+    background: url('../core/ui/assets/nike-shoe.png'), #414141;
+    background-size: cover;
+    background-position-x: -10vh;
+    filter: drop-shadow(51px -5px 30px rgba(0, 0, 0, 0.25));
 }
