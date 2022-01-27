@@ -1,0 +1,19 @@
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.edit-button {
+    display: flex;
+}
+.list-item__right-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.list-item__right-child h2 {
+    margin-right: 10px;
+}
+.list-item__left-child {
+    display: flex;
+}

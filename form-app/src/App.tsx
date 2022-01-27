@@ -9,6 +9,7 @@ import ProtectedRoute from './core/route/ProtectedRoute';
 import Admin from './admin-page/Admin';
 import ROUTES from './core/route/routes';
 import InquiryDetail from './form/inquiry-form/inquiry-detail/InquiryDetail';
+import TicketDetail from './admin-page/ticket-detail/TicketDetail';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path={ROUTES.LOGIN} element={<Login />} />
                     <Route path={ROUTES.ADMIN} element={<ProtectedRoute />}>
                         <Route path={ROUTES.ADMIN} element={<Admin />} />
+                        <Route path={ROUTES.ADMIN_VIEW_TICKET} element={<TicketDetail />} />
                     </Route>
                     <Route
                         path="*"

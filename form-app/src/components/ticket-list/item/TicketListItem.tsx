@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
-import EditTicket from '../../../admin-page/edit-ticket/EditTicket';
+import React from 'react';
+import { generatePath, useNavigate } from 'react-router';
 import { Ticket } from '../../../api/ticketApiModels';
-import useAsyncProcess from '../../../core/network/async-process/useAsyncProcess';
-import Modal from '../../modal/Modal';
+import ROUTES from '../../../core/route/routes';
+import AdminPageButton from '../../admin-page-button/AdminPageButton';
+import './ticket-list-item.css';
 
 interface TodoListItemProps {
     ticket: Ticket;
 }
 
 function TicketListItem({ ticket }: TodoListItemProps) {
-    const { runAsyncProcess } = useAsyncProcess();
-    const [shouldDisplayEditModal, setEditModalVisibility] = useState(false);
+    const navigate = useNavigate();
     return (
         <li>
-            <h2>Ticket ID: {ticket._id}</h2>
-            <h2>Status: {ticket.status}</h2>
-            <h2>Reason for Inquiry: {ticket.reasonForInquiry}</h2>
-            {shouldDisplayEditModal && (
-                <Modal isOpen={shouldDisplayEditModal} modalContentLabel="Edit Todo" onClose={handleEditModalClose}>
-                    <EditTicket ticket={ticket} onSubmit={handleEditModalClose} />
-                </Modal>
-            )}
+            <div className="list-item__left-child">
+                <h2>
+                    {ticket.firstName} {ticket.lastName}
+                </h2>
+            </div>
+            <div className="list-item__right-child">
+                <h2>Status: {ticket.status}</h2>
+                <div className="edit-button">
+                    <AdminPageButton onClick={handleViewClick}>view</AdminPageButton>
+                </div>
+            </div>
         </li>
     );
-    function handleEditClick() {
-        setEditModalVisibility(true);
-    }
-    function handleEditModalClose() {
-        setEditModalVisibility(false);
+    function handleViewClick() {
+        navigate(generatePath(ROUTES.ADMIN_VIEW_TICKET, { id: ticket._id }));
     }
 }
 

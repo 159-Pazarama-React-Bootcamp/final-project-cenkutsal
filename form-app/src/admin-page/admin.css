@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 header {
+    position: sticky;
+    top: 0;
+    background: white;
     border-bottom: 3px solid #000000;
     box-sizing: border-box;
 }
 .header__right {
     font-family: 'Open Sans';
 }
-section {
+.ticket-list__container {
     display: flex;
     font-family: 'Open Sans';
+    font-size: 12px;
     justify-content: center;
     align-items: center;
 }
 .ticket-list__wrapper {
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

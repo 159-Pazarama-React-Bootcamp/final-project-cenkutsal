@@ -3,6 +3,7 @@ const ROUTES = {
     SEND_TICKET: '/send-ticket',
     LOGIN: '/login',
     ADMIN: '/admin',
+    ADMIN_VIEW_TICKET: '/admin/ticket/:id',
     INQUIRY: '/inquiry',
     INQUIRY_DETAIL: '/inquiry/:id',
 } as const;

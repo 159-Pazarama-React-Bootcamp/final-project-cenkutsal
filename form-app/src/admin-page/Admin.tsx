@@ -24,7 +24,7 @@ function Admin() {
                 </div>
             </header>
             <Wrapper className="ticket-list__wrapper">
-                <section>
+                <section className="ticket-list__container">
                     <TicketList />
                 </section>
             </Wrapper>
