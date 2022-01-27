@@ -1,8 +1,8 @@
-import { stat } from 'fs';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import ticketApi from '../../../api/ticketApi';
 import { Ticket } from '../../../api/ticketApiModels';
+import Spinner from '../../../components/spinner/Spinner';
 import useAsyncProcess from '../../../core/network/async-process/useAsyncProcess';
 import InvalidInquiry from './inquiry-detail-invalid/InvalidInquiry';
 import ValidInquiry from './inquiry-detail-valid/ValidInquiry';
@@ -22,7 +22,7 @@ function InquiryDetail() {
     return <div>{renderContent()}</div>;
 
     function renderContent() {
-        let content: React.ReactNode = 'Loading...';
+        let content: React.ReactNode = <Spinner />;
 
         if (state.isRequestFetched) {
             content = state.isRequestFetched && state.data ? <ValidInquiry data={state.data} /> : <InvalidInquiry />;

@@ -11,7 +11,7 @@ function Admin() {
     const { appState } = useContext(AppContext);
     return (
         <div>
-            <header>
+            <header className="header">
                 <div className="header__left">
                     <img src={NikeLogo} alt="Nike Logo" />
                 </div>

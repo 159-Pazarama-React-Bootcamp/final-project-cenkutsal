@@ -68,7 +68,9 @@ Textarea {
 .report-form__footer {
     padding-top: 10px;
 }
-
+.report-form__footer Button {
+    width: 325px;
+}
 .report-form__footer span {
     font-family: 'Helvetica';
     font-style: normal;

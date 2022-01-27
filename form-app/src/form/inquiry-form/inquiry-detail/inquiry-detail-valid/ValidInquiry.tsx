@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ticketApi from '../../../../api/ticketApi';
 import { Ticket } from '../../../../api/ticketApiModels';
 import Wrapper from '../../../../components/wrapper/Wrapper';
+import ROUTES from '../../../../core/route/routes';
 import './valid-inquiry.css';
 
 interface ValidInquiryProps {
@@ -18,6 +19,11 @@ function ValidInquiry(props: ValidInquiryProps) {
                 <h3>Status:{props.data.status}</h3>
                 <h3>Reason for Inquiry:{props.data.reasonForInquiry}</h3>
                 <h3>Response:{props.data.response}</h3>
+                <div className="valid-inquiry__footer">
+                    <span>
+                        <a href={ROUTES.HOME}>Return Home Page</a>
+                    </span>
+                </div>
             </div>
         </Wrapper>
     );

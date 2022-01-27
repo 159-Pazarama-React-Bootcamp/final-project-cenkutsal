@@ -15,6 +15,9 @@
     box-sizing: border-box;
     padding: 50px;
 }
+.inquiry-form__footer Button {
+    width: 325px;
+}
 .inquiry-form__footer span {
     font-family: 'Helvetica';
     font-style: normal;
