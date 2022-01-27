@@ -19,7 +19,17 @@ function InquiryDetail() {
             } catch (error) {}
         })();
     }, [id]);
-    return <div>{state.data ? <ValidInquiry data={state.data} /> : <InvalidInquiry />}</div>;
+    return <div>{renderContent()}</div>;
+
+    function renderContent() {
+        let content: React.ReactNode = 'Loading...';
+
+        if (state.isRequestFetched) {
+            content = state.isRequestFetched && state.data ? <ValidInquiry data={state.data} /> : <InvalidInquiry />;
+        }
+
+        return content;
+    }
 }
 
 export default InquiryDetail;

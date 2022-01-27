@@ -11,14 +11,19 @@ interface AppContextProviderProps {
 }
 function AppContextProvider({ children }: AppContextProviderProps) {
     const [appState, dispatchAppStateAction] = useReducer(appStateReducer, initialAppState);
-    const { state, runAsyncProcess } = useAsyncProcess<User>();
+    const { state: userState, runAsyncProcess } = useAsyncProcess<User>();
+    const { state: ticketsState, runAsyncProcess: runGetTicketsAsyncProcess } = useAsyncProcess<Ticket[]>();
 
     useEffect(() => {
         (async () => {
             try {
                 const response = await runAsyncProcess(usersApi.getLoggedInUser());
-                dispatchAppStateAction({ type: 'SET_USER', payload: response });
-                console.log(response);
+                if (response) {
+                    const tickets = await runGetTicketsAsyncProcess(ticketApi.getTickets());
+                    dispatchAppStateAction({ type: 'SET_USER', payload: response });
+                    dispatchAppStateAction({ type: 'SET_IS_INITIAL_REQUEST_FETCHED', payload: true });
+                    dispatchAppStateAction({ type: 'SET_TICKETS', payload: tickets });
+                }
             } catch (error) {}
         })();
     }, []);

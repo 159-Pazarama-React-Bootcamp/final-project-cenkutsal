@@ -5,10 +5,12 @@ import { User } from '../../api/usersApiModels';
 interface AppState {
     user: User | null;
     tickets: Ticket[];
+    isInitialRequestFetched: boolean;
 }
 const initialAppState: AppState = {
     user: null,
     tickets: [] as Ticket[],
+    isInitialRequestFetched: false,
 } as const;
 
 type AppStateAction =
@@ -17,7 +19,11 @@ type AppStateAction =
     | { type: 'SET_TICKET_STATUS'; payload: { ticketID: string } }
     | { type: 'REMOVE_TICKET'; payload: { ticketID: string } }
     | { type: 'UPDATE_TICKET'; payload: Ticket }
-    | { type: 'SET_USER'; payload: User };
+    | { type: 'SET_USER'; payload: User }
+    | {
+          type: 'SET_IS_INITIAL_REQUEST_FETCHED';
+          payload: boolean;
+      };
 
 //App state Reducer
 function appStateReducer(state = initialAppState, action: AppStateAction) {
@@ -55,6 +61,10 @@ function appStateReducer(state = initialAppState, action: AppStateAction) {
         }
         case 'SET_USER':
             newState = { ...state, user: action.payload };
+            break;
+
+        case 'SET_IS_INITIAL_REQUEST_FETCHED':
+            newState = { ...state, isInitialRequestFetched: action.payload };
             break;
         default:
             break;

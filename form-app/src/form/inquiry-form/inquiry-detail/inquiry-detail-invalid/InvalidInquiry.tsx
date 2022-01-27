@@ -3,6 +3,8 @@ import Wrapper from '../../../../components/wrapper/Wrapper';
 import './invalid-inquiry.css';
 
 function InvalidInquiry() {
+    console.log('geldi');
+
     return (
         <Wrapper className="invalid-inquiry__wrapper">
             <div className="invalid-inquiry__container">

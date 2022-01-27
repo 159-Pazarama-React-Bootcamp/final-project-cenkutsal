@@ -23,7 +23,9 @@ const ticketApi = {
     deleteTicket(id: string) {
         return fetch(`${baseUrl}/${id}`, {
             method: 'DELETE',
-        });
+        })
+            .then((response) => response.json())
+            .catch((error) => console.log(error));
     },
     getTicketById(id: string) {
         return fetch(`${baseUrl}/${id}`, {
