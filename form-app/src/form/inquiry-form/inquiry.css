@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../../core/ui/fonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+}
 .inquiry-form__wrapper {
     display: flex;
     justify-content: center;
@@ -9,4 +14,21 @@
     border: 3px solid #000000;
     box-sizing: border-box;
     padding: 50px;
+}
+.inquiry-form__footer span {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 19px;
+}
+.inquiry-form__footer a {
+    margin-left: 4px;
+    font-size: 12px;
+    line-height: 130%;
+    color: #000000;
 }

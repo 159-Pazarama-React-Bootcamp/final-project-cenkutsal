@@ -43,6 +43,10 @@ function Inquiry() {
                             <Field placeholder="Ticket ID" name="id" as={Input} />
                             <div className="inquiry-form__footer">
                                 <Button type="submit">inquiry</Button>
+                                <span>
+                                    <p>Not the page you looking for?</p>
+                                    <a href={ROUTES.HOME}>Go Back</a>
+                                </span>
                             </div>
                         </Form>
                     )}
