@@ -1,4 +1,11 @@
-const ROUTES = { HOME: '/', INQUIRY: '/send-ticket', LOGIN: '/login', ADMIN: '/admin' } as const;
+const ROUTES = {
+    HOME: '/',
+    SEND_TICKET: '/send-ticket',
+    LOGIN: '/login',
+    ADMIN: '/admin',
+    INQUIRY: '/inquiry',
+    INQUIRY_DETAIL: '/inquiry/:id',
+} as const;
 export default ROUTES;
 //  <Route path="/send-ticket" element={<ReportForm />} />
 // <Route path="/inquiry" element={<Inquiry />} />

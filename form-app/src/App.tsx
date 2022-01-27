@@ -8,16 +8,18 @@ import Inquiry from './form/inquiry-form/Inquiry';
 import ProtectedRoute from './core/route/ProtectedRoute';
 import Admin from './admin-page/Admin';
 import ROUTES from './core/route/routes';
+import InquiryDetail from './form/inquiry-form/inquiry-detail/InquiryDetail';
 
 function App() {
     return (
         <div className="app__container">
             <Router>
                 <Routes>
-                    <Route path="/" element={<Landing />} />
-                    <Route path="/send-ticket" element={<ReportForm />} />
-                    <Route path="/inquiry" element={<Inquiry />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path={ROUTES.HOME} element={<Landing />} />
+                    <Route path={ROUTES.SEND_TICKET} element={<ReportForm />} />
+                    <Route path={ROUTES.INQUIRY} element={<Inquiry />} />
+                    <Route path={ROUTES.INQUIRY_DETAIL} element={<InquiryDetail />} />
+                    <Route path={ROUTES.LOGIN} element={<Login />} />
                     <Route path={ROUTES.ADMIN} element={<ProtectedRoute />}>
                         <Route path={ROUTES.ADMIN} element={<Admin />} />
                     </Route>

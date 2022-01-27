@@ -9,6 +9,8 @@ import AppContext from '../../core/context/AppContext';
 import Button from '../../components/button/Button';
 import { User } from '../../api/usersApiModels';
 import './login.css';
+import { useNavigate } from 'react-router';
+import ROUTES from '../../core/route/routes';
 
 const validationSchema = yup.object({
     username: yup.string().required('Username is required*'),
@@ -18,6 +20,7 @@ const validationSchema = yup.object({
 function Login() {
     const { runAsyncProcess: runLoginAsyncProcess } = useAsyncProcess<User>();
     const { dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
+    const navigate = useNavigate();
     return (
         <Wrapper className="login-form__wrapper">
             <div className="login-form__container">
@@ -28,14 +31,13 @@ function Login() {
                     }}
                     onSubmit={async (data) => {
                         try {
-                            const response = await runLoginAsyncProcess(
+                            await runLoginAsyncProcess(
                                 usersApi.login({
                                     username: data.username,
                                     password: data.password,
                                 }),
                             );
-                            // window.location.reload();
-                            console.log(response);
+                            navigate(ROUTES.ADMIN);
                         } catch (error) {
                             console.log(error);
                         }

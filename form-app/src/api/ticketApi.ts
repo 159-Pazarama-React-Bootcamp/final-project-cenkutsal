@@ -28,7 +28,13 @@ const ticketApi = {
     getTicketById(id: string) {
         return fetch(`${baseUrl}/${id}`, {
             method: 'GET',
-        });
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .catch((error) => console.log(error));
     },
     updateTicket(payload: Ticket, id: string): Promise<Ticket> {
         return fetch(`${baseUrl}/${id}`, {

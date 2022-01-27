@@ -1,5 +1,5 @@
 import React from 'react';
-import './_input.css';
+import './input.css';
 
 export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'name'> & {
     onChange?: React.ReactEventHandler<HTMLInputElement>;

@@ -1,43 +1,48 @@
 import { Field, Form, Formik } from 'formik';
 import React, { useContext } from 'react';
-import ticketApi from '../../api/ticketApi';
+import * as yup from 'yup';
+import { generatePath, useNavigate } from 'react-router';
 import { Ticket } from '../../api/ticketApiModels';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
 import Wrapper from '../../components/wrapper/Wrapper';
 import AppContext from '../../core/context/AppContext';
 import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
+import ROUTES from '../../core/route/routes';
 import './inquiry.css';
 
+const validationSchema = yup.object({
+    id: yup.string().required('Please enter your ticket ID.'),
+});
+
 function Inquiry() {
-    const { runAsyncProcess: runGetTicketByIdAsyncProcess } = useAsyncProcess<Ticket>();
-    const { dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
+    useAsyncProcess<Ticket>();
+    useContext(AppContext);
+    const navigate = useNavigate();
     return (
         <Wrapper className="inquiry-form__wrapper">
             <div className="inquiry-form__container">
                 <Formik
                     initialValues={{
-                        _id: '',
+                        id: '',
                     }}
-                    onSubmit={async (data) => {
-                        try {
-                            // const response = await runGetTicketByIdAsyncProcess(ticketApi.getTicketById());
-                            //TO-DO -> route to ticket sent successfully page.
-                        } catch (error) {}
+                    onSubmit={(data) => {
+                        navigate(generatePath(ROUTES.INQUIRY_DETAIL, { id: data.id }));
                     }}
+                    validationSchema={validationSchema}
                 >
                     {({ values, errors }) => (
                         <Form className="inquiry-form">
-                            {errors._id ? (
+                            {errors.id ? (
                                 <p style={{ color: 'red' }} className="inquiry-form__middle--error">
-                                    {errors._id}
+                                    {errors.id}
                                 </p>
                             ) : (
                                 ''
                             )}
-                            <Field placeholder="Ticket ID" name="_id" as={Input} />
+                            <Field placeholder="Ticket ID" name="id" as={Input} />
                             <div className="inquiry-form__footer">
-                                <Button type="submit">login</Button>
+                                <Button type="submit">inquiry</Button>
                             </div>
                         </Form>
                     )}
