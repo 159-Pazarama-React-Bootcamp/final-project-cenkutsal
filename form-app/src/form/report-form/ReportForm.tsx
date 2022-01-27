@@ -11,6 +11,7 @@ import ticketApi from '../../api/ticketApi';
 import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
 import AppContext from '../../core/context/AppContext';
 import Wrapper from '../../components/wrapper/Wrapper';
+import ROUTES from '../../core/route/routes';
 
 const validationSchema = yup.object({
     firstName: yup
@@ -29,9 +30,9 @@ const validationSchema = yup.object({
         .max(11)
         .required('Please enter your social ID number*')
         .matches(/^[1-9]{1}[0-9]{9}[02468]{1}$/, 'Invalid Social ID Number'),
-    age: yup.number().positive('Your age must be a positive number*'),
-    reasonForInquiry: yup.string().required('Please enter the reason for inquiry'),
-    address: yup.string().required('Please enter your address'),
+    age: yup.number().positive('Your age must be a positive number'),
+    reasonForInquiry: yup.string().required('Please enter the reason for your inquiry*'),
+    address: yup.string().required('Please enter your address*'),
 });
 
 function ReportForm() {
@@ -134,7 +135,7 @@ function ReportForm() {
                                 <Button type="submit">send ticket</Button>
                                 <span>
                                     <p>Already sent a ticket?</p>
-                                    <a href="#">Inquiry</a>
+                                    <a href={ROUTES.INQUIRY}>Inquiry</a>
                                 </span>
                             </div>
                         </Form>

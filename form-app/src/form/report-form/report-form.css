@@ -11,12 +11,11 @@
 }
 .report-form__wrapper {
     display: flex;
+    align-items: center;
     justify-content: center;
     height: 100vh;
-    align-items: center;
 }
-
-.report-form__container {
+.report-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,11 +24,15 @@
     background: #ffffff;
     border: 3px solid #000000;
     box-sizing: border-box;
-    width: 485px;
-    padding: 80px;
+    width: 500px;
+    padding: 60px;
 }
 .report-form__header {
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .report-form--top--h2 {
     font-family: 'Trade Gothic for Nike';
