@@ -4,7 +4,7 @@ import ticketApi from '../../../api/ticketApi';
 import { Ticket } from '../../../api/ticketApiModels';
 import Spinner from '../../../components/spinner/Spinner';
 import useAsyncProcess from '../../../core/network/async-process/useAsyncProcess';
-import InvalidInquiry from './inquiry-detail-invalid/InvalidInquiry';
+import ErrorPage from './inquiry-detail-invalid/InvalidInquiry';
 import ValidInquiry from './inquiry-detail-valid/ValidInquiry';
 
 function InquiryDetail() {
@@ -25,7 +25,7 @@ function InquiryDetail() {
         let content: React.ReactNode = <Spinner />;
 
         if (state.isRequestFetched) {
-            content = state.isRequestFetched && state.data ? <ValidInquiry data={state.data} /> : <InvalidInquiry />;
+            content = state.isRequestFetched && state.data ? <ValidInquiry data={state.data} /> : <ErrorPage />;
         }
 
         return content;

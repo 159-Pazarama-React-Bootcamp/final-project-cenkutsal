@@ -2,12 +2,13 @@ import React, { useContext, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ticketApi from '../../api/ticketApi';
 import { Ticket } from '../../api/ticketApiModels';
+import Spinner from '../../components/spinner/Spinner';
 import Wrapper from '../../components/wrapper/Wrapper';
 import AppContext from '../../core/context/AppContext';
 import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
 import ROUTES from '../../core/route/routes';
 import NikeLogo from '../../core/ui/assets/NikeLogo.png';
-import EditTicketDetail from './edit/EditTicketDetail';
+import EditTicketDetail from './edit-form/EditTicketDetailForm';
 import './ticket-detail.css';
 
 function TicketDetail() {
@@ -25,7 +26,7 @@ function TicketDetail() {
     }, [id]);
     return (
         <div>
-            <header>
+            <header className="header">
                 <div className="header__left">
                     <img src={NikeLogo} alt="Nike Logo" />
                 </div>
@@ -33,7 +34,7 @@ function TicketDetail() {
                     <Link to={ROUTES.ADMIN}>Admin Dashboard</Link>
                 </div>
                 <div className="header__right">
-                    {appState.user?.username}
+                    @{appState.user?.username}
                     {/*<Logout /> */}
                 </div>
             </header>
@@ -50,7 +51,7 @@ function TicketDetail() {
                         <h4>Response: {currentTicketState.data?.response}</h4>
                     </div>
                     <div className="ticket-detail__footer">
-                        {currentTicketState.data ? <EditTicketDetail ticket={currentTicketState.data} /> : null}
+                        {currentTicketState.data ? <EditTicketDetail ticket={currentTicketState.data} /> : <Spinner />}
                         <span>
                             <p>Not the page you looking for?</p>
                             <a href={ROUTES.ADMIN}>View Tickets</a>

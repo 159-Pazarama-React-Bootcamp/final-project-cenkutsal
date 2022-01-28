@@ -11,6 +11,7 @@ import ROUTES from './core/route/routes';
 import InquiryDetail from './form/inquiry-form/inquiry-detail/InquiryDetail';
 import TicketDetail from './admin-page/ticket-detail/TicketDetail';
 import InquirySuccessful from './form/inquiry-form/inquiry-successful/InquirySuccessful';
+import ErrorPage from './form/inquiry-form/inquiry-detail/inquiry-detail-invalid/InvalidInquiry';
 
 function App() {
     return (
@@ -27,14 +28,7 @@ function App() {
                         <Route path={ROUTES.ADMIN} element={<Admin />} />
                         <Route path={ROUTES.ADMIN_VIEW_TICKET} element={<TicketDetail />} />
                     </Route>
-                    <Route
-                        path="*"
-                        element={
-                            <main style={{ padding: '1rem' }}>
-                                <h2>There&apos;s nothing here!</h2>
-                            </main>
-                        }
-                    />
+                    <Route path="*" element={<ErrorPage />} />
                 </Routes>
             </Router>
         </div>

@@ -3,7 +3,7 @@ import Wrapper from '../../../../components/wrapper/Wrapper';
 import ROUTES from '../../../../core/route/routes';
 import './invalid-inquiry.css';
 
-function InvalidInquiry() {
+function ErrorPage() {
     return (
         <Wrapper className="invalid-inquiry__wrapper">
             <div className="invalid-inquiry__container">
@@ -19,4 +19,4 @@ function InvalidInquiry() {
     );
 }
 
-export default InvalidInquiry;
+export default ErrorPage;

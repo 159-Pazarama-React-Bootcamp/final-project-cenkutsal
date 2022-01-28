@@ -19,7 +19,7 @@ function Admin() {
                     <Link to={ROUTES.ADMIN}>Admin Dashboard</Link>
                 </div>
                 <div className="header__right">
-                    {appState.user?.username}
+                    @{appState.user?.username}
                     {/*<Logout /> */}
                 </div>
             </header>

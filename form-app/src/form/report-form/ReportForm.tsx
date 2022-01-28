@@ -39,7 +39,6 @@ const validationSchema = yup.object({
 function ReportForm() {
     const { runAsyncProcess: runAddTicketAsyncProcess } = useAsyncProcess<Ticket>();
     const { appState: currentTicketState, dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
-    const [currentTicketID, setCurrentTicketID] = useState(null);
     const navigate = useNavigate();
     return (
         <Wrapper className="report-form__wrapper">
@@ -69,7 +68,6 @@ function ReportForm() {
                                 }),
                             );
                             dispatchAppStateAction({ type: 'ADD_TICKET', payload: response });
-                            //TO-DO -> route to ticket sent successfully page.
                             navigate(generatePath(ROUTES.INQUIRY_SUCCESSFUL));
                             localStorage.setItem('ticketID', response._id);
                             location.reload();
@@ -87,7 +85,7 @@ function ReportForm() {
                     }}
                     validationSchema={validationSchema}
                 >
-                    {({ values, errors }) => (
+                    {({ errors }) => (
                         <Form className="report-form__middle">
                             {errors.firstName ? (
                                 <p style={{ color: 'red' }} className="report-form__middle--error">
