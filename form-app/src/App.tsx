@@ -10,6 +10,7 @@ import Admin from './admin-page/Admin';
 import ROUTES from './core/route/routes';
 import InquiryDetail from './form/inquiry-form/inquiry-detail/InquiryDetail';
 import TicketDetail from './admin-page/ticket-detail/TicketDetail';
+import InquirySuccessful from './form/inquiry-form/inquiry-successful/InquirySuccessful';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path={ROUTES.INQUIRY} element={<Inquiry />} />
                     <Route path={ROUTES.INQUIRY_DETAIL} element={<InquiryDetail />} />
                     <Route path={ROUTES.LOGIN} element={<Login />} />
+                    <Route path={ROUTES.INQUIRY_SUCCESSFUL} element={<InquirySuccessful />} />
                     <Route path={ROUTES.ADMIN} element={<ProtectedRoute />}>
                         <Route path={ROUTES.ADMIN} element={<Admin />} />
                         <Route path={ROUTES.ADMIN_VIEW_TICKET} element={<TicketDetail />} />

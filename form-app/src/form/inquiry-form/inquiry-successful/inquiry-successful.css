@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../../../core/ui/fonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+}
+.inquiry-successful__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+}
+.inquiry-successful__container {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inquiry-successful__container h2 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+.inquiry-successful__container h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.inquiry-successful__footer {
+    padding-top: 10px;
+}
+.inquiry-successful__footer span,
+.inquiry-successful__footer a,
+.inquiry-successful__footer p {
+    display: flex;
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 130%;
+    color: #000000;
+}

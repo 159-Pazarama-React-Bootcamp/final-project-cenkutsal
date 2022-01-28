@@ -8,6 +8,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
 }
 .valid-inquiry__container {
     background: #ffffff;
@@ -15,10 +18,7 @@
     box-sizing: border-box;
     padding: 50px;
 }
-.valid-inquiry span a {
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: normal;
+.valid-inquiry__footer span a {
     font-size: 12px;
     line-height: 130%;
     display: flex;

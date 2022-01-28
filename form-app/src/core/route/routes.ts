@@ -5,6 +5,7 @@ const ROUTES = {
     ADMIN: '/admin',
     ADMIN_VIEW_TICKET: '/admin/ticket/:id',
     INQUIRY: '/inquiry',
+    INQUIRY_SUCCESSFUL: '/inquiry-successful',
     INQUIRY_DETAIL: '/inquiry/:id',
 } as const;
 export default ROUTES;

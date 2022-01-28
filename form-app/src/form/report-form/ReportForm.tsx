@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from '../../components/button/Button';
 import { Form, Field, Formik } from 'formik';
 import Input from '../../components/input/Input';
@@ -12,6 +12,7 @@ import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
 import AppContext from '../../core/context/AppContext';
 import Wrapper from '../../components/wrapper/Wrapper';
 import ROUTES from '../../core/route/routes';
+import { generatePath, useNavigate } from 'react-router';
 
 const validationSchema = yup.object({
     firstName: yup
@@ -37,7 +38,9 @@ const validationSchema = yup.object({
 
 function ReportForm() {
     const { runAsyncProcess: runAddTicketAsyncProcess } = useAsyncProcess<Ticket>();
-    const { dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
+    const { appState: currentTicketState, dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
+    const [currentTicketID, setCurrentTicketID] = useState(null);
+    const navigate = useNavigate();
     return (
         <Wrapper className="report-form__wrapper">
             <div className="report-form">
@@ -67,6 +70,9 @@ function ReportForm() {
                             );
                             dispatchAppStateAction({ type: 'ADD_TICKET', payload: response });
                             //TO-DO -> route to ticket sent successfully page.
+                            navigate(generatePath(ROUTES.INQUIRY_SUCCESSFUL));
+                            localStorage.setItem('ticketID', response._id);
+                            location.reload();
                         } catch (error) {}
                         resetForm({
                             values: {
@@ -136,6 +142,8 @@ function ReportForm() {
                                 <span>
                                     <p>Already sent a ticket?</p>
                                     <a href={ROUTES.INQUIRY}>Inquiry</a>
+                                    <p>or</p>
+                                    <a href={ROUTES.HOME}>Return Home Page</a>
                                 </span>
                             </div>
                         </Form>

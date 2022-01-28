@@ -7,6 +7,7 @@ textarea {
     /* whiteColor */
 
     background: #ffffff;
+    resize: none;
     /* contenColor 10 */
     font-family: 'Helvetica';
     font-style: normal;

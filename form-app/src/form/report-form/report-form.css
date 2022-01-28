@@ -82,7 +82,8 @@ Textarea {
     justify-content: center;
     padding-top: 19px;
 }
-.report-form__footer a {
+.report-form__footer a,
+.report-form__footer p {
     margin-left: 4px;
     font-size: 12px;
     line-height: 130%;
