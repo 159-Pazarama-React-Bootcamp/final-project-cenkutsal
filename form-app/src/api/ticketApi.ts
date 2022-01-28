@@ -1,6 +1,6 @@
 import { AddTicketPayload, Ticket } from './ticketApiModels';
 
-const baseUrl = 'http://localhost:4001/api/tickets';
+const baseUrl = 'https://pazarama-final-project-backend.herokuapp.com/api/tickets';
 
 const ticketApi = {
     getTickets(): Promise<Ticket[]> {

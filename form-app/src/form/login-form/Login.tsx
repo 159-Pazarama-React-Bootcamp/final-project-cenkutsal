@@ -5,7 +5,6 @@ import Input from '../../components/input/Input';
 import Wrapper from '../../components/wrapper/Wrapper';
 import usersApi from '../../api/usersApi';
 import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
-import AppContext from '../../core/context/AppContext';
 import Button from '../../components/button/Button';
 import { User } from '../../api/usersApiModels';
 import './login.css';
@@ -19,7 +18,6 @@ const validationSchema = yup.object({
 
 function Login() {
     const { runAsyncProcess: runLoginAsyncProcess } = useAsyncProcess<User>();
-    const { dispatchAppStateAction: dispatchAppStateAction } = useContext(AppContext);
     const navigate = useNavigate();
     return (
         <Wrapper className="login-form__wrapper">

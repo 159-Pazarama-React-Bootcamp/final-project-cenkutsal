@@ -1,6 +1,6 @@
 import { User } from './usersApiModels';
 
-const baseUrl = 'http://localhost:4001/api';
+const baseUrl = 'https://pazarama-final-project-backend.herokuapp.com/api';
 
 const accessToken = getCookie('access-token');
 

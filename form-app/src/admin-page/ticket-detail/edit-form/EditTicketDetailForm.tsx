@@ -28,7 +28,7 @@ function EditTicketDetailForm({ ticket }: EditTicketDetailProps) {
                         );
                         dispatchAppStateAction({ type: 'UPDATE_TICKET', payload: response });
                         location.reload();
-                    } catch (error) { }
+                    } catch (error) {}
                 }}
                 enableReinitialize
                 initialValues={{ response: '', status: null }}
