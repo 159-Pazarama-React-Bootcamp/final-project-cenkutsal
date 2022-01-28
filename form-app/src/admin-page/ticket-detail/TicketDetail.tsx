@@ -8,7 +8,7 @@ import AppContext from '../../core/context/AppContext';
 import useAsyncProcess from '../../core/network/async-process/useAsyncProcess';
 import ROUTES from '../../core/route/routes';
 import NikeLogo from '../../core/ui/assets/NikeLogo.png';
-import EditTicketDetail from './edit-form/EditTicketDetailForm';
+import EditTicketDetailForm from './edit-form/EditTicketDetailForm';
 import './ticket-detail.css';
 
 function TicketDetail() {
@@ -51,7 +51,11 @@ function TicketDetail() {
                         <h4>Response: {currentTicketState.data?.response}</h4>
                     </div>
                     <div className="ticket-detail__footer">
-                        {currentTicketState.data ? <EditTicketDetail ticket={currentTicketState.data} /> : <Spinner />}
+                        {currentTicketState.data ? (
+                            <EditTicketDetailForm ticket={currentTicketState.data} />
+                        ) : (
+                            <Spinner />
+                        )}
                         <span>
                             <p>Not the page you looking for?</p>
                             <a href={ROUTES.ADMIN}>View Tickets</a>

@@ -12,7 +12,7 @@ interface EditTicketDetailProps {
     ticket: Ticket;
 }
 
-function EditTicketDetail({ ticket }: EditTicketDetailProps) {
+function EditTicketDetailForm({ ticket }: EditTicketDetailProps) {
     const { runAsyncProcess } = useAsyncProcess<Ticket>();
     const { dispatchAppStateAction } = useContext(AppContext);
     return (
@@ -28,7 +28,7 @@ function EditTicketDetail({ ticket }: EditTicketDetailProps) {
                         );
                         dispatchAppStateAction({ type: 'UPDATE_TICKET', payload: response });
                         location.reload();
-                    } catch (error) {}
+                    } catch (error) { }
                 }}
                 enableReinitialize
                 initialValues={{ response: '', status: null }}
@@ -65,4 +65,4 @@ function EditTicketDetail({ ticket }: EditTicketDetailProps) {
     );
 }
 
-export default EditTicketDetail;
+export default EditTicketDetailForm;
