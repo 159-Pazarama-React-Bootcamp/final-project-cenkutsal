@@ -1,7 +1,8 @@
 ## Bitirme projesi
 ### Başvuru / ticket yönetim sistemi
 
-
+#### Uygulama Linki
+[Uygulama Linki](https://focused-tesla-2a4d86.netlify.app/)
 #### Genel Açıklama
 
 Uygulamamız herkese açık bir başvuru formunun son kullanıcı tarafından doldurulması ile başlıyor. 
